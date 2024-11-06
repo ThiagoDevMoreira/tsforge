@@ -1,0 +1,19 @@
+{
+  "name": "utils",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "core/utils/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/core/utils",
+        "main": "core/utils/src/index.ts",
+        "tsConfig": "core/utils/tsconfig.lib.json",
+        "assets": ["core/utils/*.md"]
+      }
+    }
+  }
+}

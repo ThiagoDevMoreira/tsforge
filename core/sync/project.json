@@ -1,0 +1,19 @@
+{
+  "name": "sync",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "core/sync/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/core/sync",
+        "main": "core/sync/src/index.ts",
+        "tsConfig": "core/sync/tsconfig.lib.json",
+        "assets": ["core/sync/*.md"]
+      }
+    }
+  }
+}

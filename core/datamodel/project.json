@@ -1,0 +1,19 @@
+{
+  "name": "datamodel",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "core/datamodel/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/core/datamodel",
+        "main": "core/datamodel/src/index.ts",
+        "tsConfig": "core/datamodel/tsconfig.lib.json",
+        "assets": ["core/datamodel/*.md"]
+      }
+    }
+  }
+}
