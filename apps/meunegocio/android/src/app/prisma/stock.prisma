@@ -1,0 +1,36 @@
+/// Estoque: Composição de dados
+model Stock {
+  // n-n produto, local de armazenamento
+  id Int @id @unique @default(autoincrement())
+  id_produto Int
+  id_armazenamento Int
+  quantidade_atual Float // refere-se à quantidade específica no lugar de armazenamento indicado.
+  unidade String
+}
+model StockCount {
+  recordId Int @id @unique @default(autoincrement())
+  productId Int
+  minQuantity Float
+  maxQuantity Float
+  totalQuantity Float  // campo dinamico,
+                          // soma do campo `Estoque_Locacizacao.quantidade_atual` por `id_produto`
+  unidade_padrao String
+}
+model StockLocalization {
+  id Int @id @unique @default(autoincrement())
+  caixaId Int
+  prateleira Int
+  compartimento Int
+  estante Int
+  sessao Int
+  corredor Int
+  area Int // entre as áreas, definir pelo menos duas `operacional` e ´estoquePadrao´
+  deposito Int
+  armazem Int
+}
+model StokMovement {
+  id Int @id @unique @default(autoincrement())
+}
+model StockCosts {
+  id Int @id @unique @default(autoincrement())
+}

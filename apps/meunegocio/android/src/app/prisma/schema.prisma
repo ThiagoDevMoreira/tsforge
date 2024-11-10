@@ -10,6 +10,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+include "./stock.prisma"
+
+
 /// Produtos: Composição de dados
 model Produto {
   // composição dos produtos e relação com as demais tabelas
@@ -35,46 +38,3 @@ model Produtos_Venda {
   // dados comerciais: preço principal e preços alternativos... descontos, margem de lucro, valor ou porcentagem de comissão
   id Int @id @unique @default(autoincrement())
 }
-
-/// Estoque: Composição de dados
-model Produto_Estoque {
-  id Int @id @unique @default(autoincrement())
-  id_Produto Int
-  quantidade_min Float
-  quantidade_max Float
-  quantidade_total Float  // campo dinamico,
-                          // soma do campo `Estoque_Locacizacao.quantidade_atual` por `id_produto`
-  unidade_padrao String
-}
-model Estoque_Localizacao {
-  id Int @id @unique @default(autoincrement())
-  id_produto Int
-  id_armazenamento Int
-  quantidade_atual Float
-  unidade String
-}
-model Estoque_Armazenamento {
-  id Int @id @unique @default(autoincrement())
-  caixaId Int
-  prateleira Int
-  compartimento Int
-  estante Int
-  sessao Int
-  corredor Int
-  area Int
-  deposito Int
-  armazem Int
-}
-model Estoque_Movimento {
-  id Int @id @unique @default(autoincrement())
-}
-model Estoque_Custos {
-  id Int @id @unique @default(autoincrement())
-}
-
-// enum Estoque_Origem {
-//   ORIGEM_PADRAO
-// }
-// enum Estoque_Destino {
-//   DESTINO_PADRAO
-// }
